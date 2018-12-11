@@ -1,0 +1,26 @@
+div.searchComponent{
+  form.search{
+    label{
+      .search-icon{
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+div.alert {
+  div.alert-items {
+    div.alert-item {
+      span.alert-text {
+        color: darkred;
+      }
+      span.backToFuulList{
+        color: darkgreen;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.flex-spinner {
+  text-align: center;
+}

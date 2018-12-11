@@ -1,0 +1,31 @@
+<div class="card clickable">
+  <div class="card-header">
+    <a [routerLink]="['/repositories', repos.id]"><h2>{{ repos.name }}</h2></a>
+    <span
+      ><clr-icon
+        shape="thumbs-up"
+        [class.redText]="isPressed"
+        (click)="likedRepos(repos.id)"
+      ></clr-icon
+    ></span>
+  </div>
+  <div class="card-block">
+    <!-- <div class="card-title">Block</div> -->
+    <div class="card-text">
+      <h4><span>Language:</span> {{ repos.language }}</h4>
+    </div>
+    <div class="card-text">
+      <p>
+        <span>Date of creation:</span> {{ repos.created_at | date: "medium" }}
+      </p>
+    </div>
+    <div class="card-text text_urlhtml">
+      <p>
+        <span>Repository URL:</span><br />
+        <a class="htmlrepos_url" href="{{repos.html_url}}" target="_blank">{{
+          repos.html_url
+        }}</a>
+      </p>
+    </div>
+  </div>
+</div>
