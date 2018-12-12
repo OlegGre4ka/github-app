@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-// import { Repos } from '';
+import { Repos } from 'src/app/shared/models/Repos';
 @Component({
   selector: 'app-repository',
   templateUrl: './repository.component.html',
@@ -7,32 +7,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RepositoryComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
-  @Input('reposItem') repos;
+  @Input('reposItem') repos: Repos;
   id;
   like = true;
   isPressed = false;
-  getLike ;
-  constructor() { }
+  getLike;
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
-
-  getLikeId() {
-    this.repos.map(repos => {this.id = repos.id;
-    this.getLike = window.localStorage.getItem(this.id.toString());
-  //  this.getLike = window.localStorage.getItem(id);
-// console.log( this.getLike, 'getIdLike');
-});
-  }
   likedRepos(id) {
-    if (this.isPressed === false) { this.isPressed = true;
-    // this.getLike = window.localStorage.getItem(id.toString());
-    // console.log(this.getLike,'getLike from localeStorage');
-     window.localStorage.setItem(id.toString(), this.like.toString());
-  } else {
-    this.isPressed = false;
-    window.localStorage.removeItem(id.toString());
+    if (this.isPressed === false) {
+      this.isPressed = true;
+
+      window.localStorage.setItem(id.toString(), this.like.toString());
+    } else {
+      this.isPressed = false;
+      window.localStorage.removeItem(id.toString());
+    }
   }
-}
 }

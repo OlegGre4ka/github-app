@@ -1,26 +1,29 @@
-.wrapper{
-  margin:-30px;
+.wrapper {
   padding: 0;
-  padding-top:25px;
+  padding-top: 25px;
   min-height: 100%;
   background-color: rgb(1, 228, 228);
-
 }
-.header-5{
-    .branding{
-      a{
-        .title{
+clr-main-container.main-container {
+  clr-header.header-5 {
+    .branding {
+      a {
+        .title {
           margin-left: 25px;
         }
       }
+    }
+    div.header-actions {
+      form {
+        label {
+          .search-icon {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .header-actions{
+      margin-right:10px
+    }
   }
 }
-
-  ::after, ::before {
-    box-sizing: inherit;
-}
-
-
-
-
-

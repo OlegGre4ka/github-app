@@ -1,20 +1,28 @@
 div.card {
   div.card-header {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    h2 {
-      white-space: nowrap;
-      overflow: hidden;
-      padding: 5px;
-      text-overflow: ellipsis;
-    }
-
+    // clr-tooltip.clr-tooltip {
+      a {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 5px;
+        text-overflow: ellipsis;
+        h2 {
+          white-space: nowrap;
+          overflow: hidden;
+          padding: 5px;
+          text-overflow: ellipsis;
+        }
+      }
+    // }
   }
   div.card-block {
     div.text_urlhtml {
       p {
         a.htmlrepos_url {
-          display: block;/*потрібно додати display:block , бо <а> - строчний елемент*/
+          display: block; /*потрібно додати display:block , бо <а> - строчний елемент*/
           white-space: nowrap;
           overflow: hidden;
           padding: 5px;
@@ -24,6 +32,6 @@ div.card {
     }
   }
 }
-.redText{
-  color:red;
+.redText {
+  color: red;
 }

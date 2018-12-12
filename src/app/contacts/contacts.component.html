@@ -1,3 +1,88 @@
-<p>
-  contacts works!
-</p>
+<div class="clr-row">
+  <div class="clr-col-lg-3 clr-col-md-3"></div>
+  <div
+    class="clr-col-lg-6 clr-col-md-6 clr-col-sm-12 clr-col-xs-12"
+    *ngFor="let user of users"
+  >
+    <div class="card">
+      <div class="card-block">
+        <div class="card-media-block">
+          <img
+            src="{{user.avatar_url}}"
+            target="_blank"
+            class="card-media-image"
+          />
+          <div class="card-media-description">
+            <span class="card-media-title"> {{ user.login }} </span>
+            <span class="card-media-text">
+              <a href="{{ user.html_url }}">{{ user.html_url }}</a>
+            </span>
+          </div>
+        </div>
+        <div class="card-title">Repository ID - {{ user.id }}</div>
+        <div class="card-text">
+          <h4><span>Public repositiries:</span> {{ user.public_repos }}</h4>
+        </div>
+        <div class="card-text">
+          <p>
+            <span>Date of creation:</span>
+            {{ user.created_at | date: "medium" }}
+          </p>
+        </div>
+        <div class="card-text">
+          <p>
+            <span>Date last pushed:</span>
+            {{ user.updated_at | date: "medium" }}
+          </p>
+        </div>
+        <div class="card-text text_urlhtml">
+          <p>
+            <span>Github API URL:</span><br />
+            <a class="url_api" href="{{user.url}}" target="_blank">{{
+              user.url
+            }}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h2>OlegGre4ka</h2></div>
+      <div class="card-block">
+        <div class="card-title">Contacts</div>
+
+        <div class="card-text">
+          <p>
+            <span>Email:</span><br />
+            <a href="mailto:gre4kae@gmail.com">gre4kae@gmail.com</a>
+          </p>
+        </div>
+        <div class="card-text">
+          <p>
+            <span>Skype:</span><br />
+            <a href="skype:gre4kae">gre4kae</a>
+          </p>
+        </div>
+        <div class="card-text">
+          <p>
+            <label>Linkedin:</label><br />
+            <a
+              href="https://www.linkedin.com/in/oleg-grechka-b14488172/"
+              target="_blank"
+              >https://www.linkedin.com/in/oleg-grechka-b14488172/</a
+            >
+          </p>
+        </div>
+        <div class="card-text">
+          <p>
+            <span>Telegram:</span><br />
+            <a href="https://t.me/gre4kae" target="_blank"
+              >https://t.me/gre4kae</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="clr-col-lg-3 clr-col-md-3"></div>
+  </div>
+</div>

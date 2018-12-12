@@ -1,7 +1,7 @@
 <div class="clr-row">
   <div class="clr-col-lg-3 clr-col-md-3"></div>
   <div
-    class="clr-col-lg-6 clr-col-md-6 clr-col-sm-12 clr-col-xs-12"
+    class="clr-col-lg-6 clr-col-md-6 clr-col-sm-12 clr-col-xs-12 clr-col"
     *ngFor="let repos of displayRepos"
   >
     <div class="card">
@@ -16,7 +16,7 @@
         ></span>
       </div>
       <div class="card-block">
-        <div class="card-title">Repository ID - {{ id }}</div>
+        <div class="card-title">Repository ID - {{ repos.id }}</div>
         <div class="card-text">
           <h4><span>Language:</span> {{ repos.language }}</h4>
         </div>
@@ -27,11 +27,11 @@
           </p>
         </div>
         <div class="card-text">
-            <p>
-              <span>Date last pushed:</span>
-              {{ repos.pushed_at | date: "medium" }}
-            </p>
-          </div>
+          <p>
+            <span>Date last pushed:</span>
+            {{ repos.pushed_at | date: "medium" }}
+          </p>
+        </div>
         <div class="card-text text_urlhtml">
           <p>
             <span>Repository URL:</span><br />
@@ -43,11 +43,8 @@
             >
           </p>
           <div class="card-text">
-              <p>
-                <span>Description:</span>
-                {{ repos.description }}
-              </p>
-            </div>
+            <p><span>Description:</span> {{ repos.description }}</p>
+          </div>
         </div>
       </div>
     </div>

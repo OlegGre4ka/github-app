@@ -1,4 +1,4 @@
-<div class="searchComponent" *ngIf="search">
+<!-- <div class="searchComponent">
   <form class="search">
     <label for="search_input">
       <input
@@ -10,12 +10,8 @@
       <clr-icon class="search-icon" shape="search" (click)="search()"></clr-icon>
     </label>
   </form>
-</div>
-<!-- <div class="showAlert" *ngIf="isShowAlert">
-  <h5>
-    The repository with such a name is not found
-  </h5>
 </div> -->
+
 <div class="alert alert-danger" role="alert" *ngIf="isShowAlert">
   <div class="alert-items">
       <div class="alert-item static">
@@ -23,7 +19,7 @@
               <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
           </div>
           <span class="alert-text">
-            The repository with such a name is not found
+            {{textMessage}}
           </span>
       </div>
   </div>
@@ -49,11 +45,6 @@
 
 <div class="clr-row">
   <div class="clr-col-lg-4 clr-col-md-6 clr-col-sm-12 clr-col-xs-12" *ngFor="let repos of displayRepos">
-    <!-- <ng-template *ngIf ="repository"> -->
-        <app-repository [reposItem]="repos" [routerLink]="['/repositories', repos.id]"></app-repository>
-    <!-- </ng-template> -->
-     <!-- <ng-template *ngIf="detailedInfo">
-      <app-detailed-info-repos [reposDetailed]="repos"></app-detailed-info-repos>
-     </ng-template> -->
+        <app-repository [reposItem]="repos" ></app-repository>
   </div>
 </div>

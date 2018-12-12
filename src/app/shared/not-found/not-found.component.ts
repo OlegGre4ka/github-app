@@ -1,20 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-@Component ({
+@Component({
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
   ngOnInit() {
-    setTimeout(
-      () => {
-this. router.navigate(['/repositories']);
-      }, 5000
-    );
+    setTimeout(() => {
+      this.router.navigate(['/repositories']);
+    }, 5000);
   }
-
 }

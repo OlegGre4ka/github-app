@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-splashscreen',
@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashscreenComponent implements OnInit {
   title = 'GitHub App';
+  login = '';
+  @Output() gitLoginEvent = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() {}
+  inputLogin() {
+    this.gitLoginEvent.emit(this.login);
+    this.login = '';
   }
-
 }

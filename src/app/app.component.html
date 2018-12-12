@@ -1,10 +1,12 @@
 <clr-main-container class="main-container" *ngIf="navbar">
   <clr-header class="header-5">
     <button class="header-hamburger-trigger" type="button">
-      <!-- <span>
-        ::before
-        ::after
-      </span> -->
+      <!--
+        <span>
+          ::before
+          ::after
+        </span>
+      -->
     </button>
     <div class="branding">
       <a routerLink="/" class="logo-and-title">
@@ -15,7 +17,7 @@
 
     <div class="divider"></div>
 
-    <div class="header-nav" [clr-nav-level]='2'>
+    <div class="header-nav" [clr-nav-level]="2">
       <a
         class="active nav-link"
         routerLinkActive="active"
@@ -28,25 +30,32 @@
     </div>
     <div class="divider"></div>
 
-    <!-- <form class="search">
-      <label for="search_input">
-        <input
-          id="search_input"
-          type="text"
-          placeholder="Search for keywords..."
-        />
-      </label>
-    </form> -->
-    <!-- <div class="header-backdrop"></div> -->
+    <div class="header-actions">
+      <form>
+        <label for="search_input">
+          <input
+            id="search_input"
+            type="text"
+            name="keyWord"
+            [(ngModel)]="keyWord"
+            (keyup.enter)="search()"
+            placeholder="Search for keywords..."
+          />
+          <clr-icon
+            class="search-icon"
+            shape="search"
+            (click)="search()"
+          ></clr-icon>
+        </label>
+      </form>
+    </div>
+    <div class="header-backdrop"></div>
   </clr-header>
   <div class="content-container">
-    <main class="content-area">
-      <router-outlet></router-outlet>
-    </main>
+    <main class="content-area"><router-outlet></router-outlet></main>
   </div>
 </clr-main-container>
 
-
 <div class="wrapper" *ngIf="splashscreen">
-  <app-splashscreen></app-splashscreen>
+  <app-splashscreen (gitLoginEvent)="inputLogin($event)"></app-splashscreen>
 </div>
