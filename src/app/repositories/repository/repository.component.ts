@@ -8,6 +8,7 @@ import { Repos } from 'src/app/shared/models/Repos';
 export class RepositoryComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('reposItem') repos: Repos;
+  @Input('keyword') keyword: string;
   id;
   like = true;
   isPressed = false;

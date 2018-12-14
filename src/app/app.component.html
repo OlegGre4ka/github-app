@@ -1,13 +1,6 @@
 <clr-main-container class="main-container" *ngIf="navbar">
   <clr-header class="header-5">
-    <button class="header-hamburger-trigger" type="button">
-      <!--
-        <span>
-          ::before
-          ::after
-        </span>
-      -->
-    </button>
+    <button class="header-hamburger-trigger" type="button"></button>
     <div class="branding">
       <a routerLink="/" class="logo-and-title">
         <img width="24" alt="Github Logo" src="../assets/github-logo-24.png" />
@@ -25,7 +18,7 @@
         ><span class="nav-text">Repositories</span></a
       >
       <a class="nav-link" routerLinkActive="active" routerLink="/contacts"
-        ><span class="nav-text">Contacts</span></a
+        ><span class="nav-text">My Contacts</span></a
       >
     </div>
     <div class="divider"></div>
@@ -36,10 +29,10 @@
           <input
             id="search_input"
             type="text"
-            name="keyWord"
-            [(ngModel)]="keyWord"
-            (keyup.enter)="search()"
-            placeholder="Search for keywords..."
+            name="keyword"
+            [(ngModel)]="keyword"
+            (keyup.enter)="search(keyword)"
+            placeholder="Search repository..."
           />
           <clr-icon
             class="search-icon"
@@ -57,5 +50,5 @@
 </clr-main-container>
 
 <div class="wrapper" *ngIf="splashscreen">
-  <app-splashscreen (gitLoginEvent)="inputLogin($event)"></app-splashscreen>
+  <app-splashscreen></app-splashscreen>
 </div>

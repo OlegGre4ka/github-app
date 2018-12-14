@@ -12,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ContactsComponent } from './contacts/contacts.component';
 import { RepositoryComponent } from './repositories/repository/repository.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailedInfoReposComponent } from './repositories/detailed-info-repos/detailed-info-repos.component';
 
 @NgModule({
@@ -27,6 +27,8 @@ import { DetailedInfoReposComponent } from './repositories/detailed-info-repos/d
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+
     ClarityModule,
     BrowserAnimationsModule,
     SharedModule,

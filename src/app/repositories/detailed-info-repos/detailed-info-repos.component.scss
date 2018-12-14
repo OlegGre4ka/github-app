@@ -1,26 +1,34 @@
 div.clr-row {
   div.clr-col {
     div.card {
-      div.card-header {
-        display: flex;
-        justify-content: space-between;
-        h2 {
-          display: block;
-          white-space: nowrap;
-          overflow: hidden;
-          padding: 5px;
-          text-overflow: ellipsis;
-        }
-      }
       div.card-block {
-        div.text_urlhtml {
-          p {
-            a.htmlrepos_url {
-              display: block; /*потрібно додати display:block , бо <а> - строчний елемент*/
-              white-space: nowrap;
-              overflow: hidden;
-              padding: 5px;
-              text-overflow: ellipsis;
+        div.card-media-block {
+           display: flex ;
+            justify-content: space-between ;
+            div.flex-head-media{
+              display: flex;
+              justify-content: space-between;
+            }
+        }
+        div.card-header {
+          h2 {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 5px;
+            text-overflow: ellipsis;
+          }
+        }
+        div.card-block {
+          div.text_urlhtml {
+            p {
+              a.htmlrepos_url {
+                display: block; /*потрібно додати display:block , бо <а> - строчний елемент*/
+                white-space: nowrap;
+                overflow: hidden;
+                padding: 5px;
+                text-overflow: ellipsis;
+              }
             }
           }
         }

@@ -7,13 +7,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  login = '';
   constructor(private http: HttpClient) {}
-  setInputLogin(login: string) {
 
-    return (this.login = login);
-  }
-  getUser(): Observable<any> {
-    return this.http.get<User>(`https://api.github.com/users/${this.login}`);
+   getUser(): Observable<any> {
+    return this.http.get<User>(`https://api.github.com/users/OlegGre4ka`);
   }
 }

@@ -1,39 +1,11 @@
-<!-- <div class="searchComponent">
-  <form class="search">
-    <label for="search_input">
-      <input
-        id="search_input"
-        type="text"
-        #message name="keyWord" [(ngModel)]="keyWord" (keyup.enter)="search()"
-        placeholder="Search for keywords..."
-      />
-      <clr-icon class="search-icon" shape="search" (click)="search()"></clr-icon>
-    </label>
-  </form>
-</div> -->
-
 <div class="alert alert-danger" role="alert" *ngIf="isShowAlert">
   <div class="alert-items">
-      <div class="alert-item static">
-          <div class="alert-icon-wrapper">
-              <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
-          </div>
-          <span class="alert-text">
-            {{textMessage}}
-          </span>
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
       </div>
-  </div>
-</div>
-<div class="alert alert-success" role="alert" *ngIf="backToFullList" (click)="goBackToFullList()">
-  <div class="alert-items">
-      <div class="alert-item static">
-          <div class="alert-icon-wrapper">
-              <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
-          </div>
-          <span class="alert-text backToFuulList">
-            Go back to the full list repositories!
-          </span>
-      </div>
+      <span class="alert-text"> {{ textMessage }} </span>
+    </div>
   </div>
 </div>
 
@@ -42,9 +14,14 @@
   <span> Loading... </span>
 </div>
 
+<h1 *ngIf="default">Default Request {{ keyword }} found: {{ total_count }}</h1>
+<h1 *ngIf="request">Request {{ keyword }} found: {{ total_count }}</h1>
 
 <div class="clr-row">
-  <div class="clr-col-lg-4 clr-col-md-6 clr-col-sm-12 clr-col-xs-12" *ngFor="let repos of displayRepos">
-        <app-repository [reposItem]="repos" ></app-repository>
+  <div
+    class="clr-col-lg-4 clr-col-md-6 clr-col-sm-12 clr-col-xs-12"
+    *ngFor="let repos of displayRepos"
+  >
+    <app-repository [reposItem]="repos" [keyword]="keyword"></app-repository>
   </div>
 </div>

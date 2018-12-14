@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearhService } from './shared/services/searh.service';
-import { RepositoriesService } from './shared/services/repositories.service';
-import { UserService } from './shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,28 +10,31 @@ import { UserService } from './shared/services/user.service';
 export class AppComponent implements OnInit {
   splashscreen = true;
   navbar = false;
-  keyWord = '';
+  keyword = '' ;
   gitLogin = '';
   constructor(
     private searhService: SearhService,
-    private reposService: RepositoriesService,
-    private userService: UserService
-  ) {}
-  ngOnInit() {}
-  inputLogin(inputLogin) {
-    if (inputLogin === '') {
-      this.gitLogin = 'OlegGre4ka';
-    } else {
-      this.gitLogin = inputLogin;
-    }
-    this.reposService.setInputLogin(this.gitLogin);
-    this.userService.setInputLogin(this.gitLogin);
+    private router: Router
 
-    this.splashscreen = false;
-    this.navbar = true;
+
+  ) {}
+  ngOnInit() {
+    setTimeout(() => {
+      this.splashscreen = false;
+      this.navbar = true;
+    }, 3000);
+
   }
-  search() {
-    this.searhService.setSearchData(this.keyWord);
-    this.keyWord = '';
+
+    search(keyword ) {
+
+      this.keyword = keyword;
+
+  this.searhService.setSearchWord(this.keyword);
+  this.router.navigate(['repositories']);
+
+    this.keyword = '';
+
+
   }
 }
