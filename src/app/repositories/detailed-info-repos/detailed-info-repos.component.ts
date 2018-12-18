@@ -12,9 +12,13 @@ export class DetailedInfoReposComponent implements OnInit {
   id: string;
   repositories: Repos[] = [];
   displayRepos: Repos[];
-  like = true;
+  // like = true;
   isPressed = false;
-  getLike;
+  count = false;
+  countLike;
+  getID;
+
+  // getLike;
 
   default = true;
   request = false;
@@ -35,6 +39,9 @@ export class DetailedInfoReposComponent implements OnInit {
     });
 
     this.getAllRepositories(this.keyword, this.id);
+
+  this.getLikeFromLocaleStorage(this.id);
+
   }
 
   getAllRepositories(keyword, valId) {
@@ -71,13 +78,29 @@ export class DetailedInfoReposComponent implements OnInit {
     );
   }
 
-  likedRepos(id) {
-    if (this.isPressed === false) {
-      this.isPressed = true;
-      window.localStorage.setItem(id.toString(), this.like.toString());
-    } else {
-      this.isPressed = false;
-      window.localStorage.removeItem(id.toString());
-    }
+  // likedRepos(id) {
+  //   if (this.isPressed === false) {
+  //     this.isPressed = true;
+  //     window.localStorage.setItem(id.toString(), this.like.toString());
+  //   } else {
+  //     this.isPressed = false;
+  //     window.localStorage.removeItem(id.toString());
+  //   }
+  // }
+
+getLikeFromLocaleStorage(id) {
+  const keys = Object.keys(window.localStorage);
+  this.getID = keys.filter(key => key === id.toString());
+  this.countLike = window.localStorage.getItem(this.getID);
+  if (!!this.countLike === true) {
+    this.isPressed = true;
+    this.count = true;
   }
+}
+likedRepos(id) {
+  window.localStorage.setItem(id.toString(), (++this.countLike).toString());
+
+  this.isPressed = true;
+  this.count = true;
+}
 }

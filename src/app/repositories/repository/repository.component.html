@@ -21,7 +21,8 @@
         [class.redText]="isPressed"
         (click)="likedRepos(repos.id)"
       ></clr-icon
-    >{{countLike}}</span>
+    >  <span class="badge badge-3" *ngIf="count">{{countLike}}</span></span>
+
   </div>
   <div class="card-block">
     <div class="card-text">

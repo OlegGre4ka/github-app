@@ -37,7 +37,7 @@
             [class.redText]="isPressed"
             (click)="likedRepos(repos.id)"
           ></clr-icon
-        ></span>
+        >  <span class="badge badge-3" *ngIf="count">{{countLike}}</span></span>
         </div>
         <div class="card-header">
           <h4><span>Language:</span> {{ repos.language }}</h4>
@@ -47,7 +47,7 @@
 
 
           <div class="card-title">Repository ID - {{ repos.id }}</div>
-      
+
           <div class="card-text">
             <p>
               <span>Date of creation:</span>
