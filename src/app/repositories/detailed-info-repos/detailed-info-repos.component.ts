@@ -17,6 +17,7 @@ export class DetailedInfoReposComponent implements OnInit {
   count = false;
   countLike;
   getID;
+  keyLocaleStorage ;
 
   // getLike;
 
@@ -78,19 +79,15 @@ export class DetailedInfoReposComponent implements OnInit {
     );
   }
 
-  // likedRepos(id) {
-  //   if (this.isPressed === false) {
-  //     this.isPressed = true;
-  //     window.localStorage.setItem(id.toString(), this.like.toString());
-  //   } else {
-  //     this.isPressed = false;
-  //     window.localStorage.removeItem(id.toString());
-  //   }
-  // }
+  uniqueKey(id) {
+    return  this.keyLocaleStorage = id.toString() + '-' + id.toString().slice(-3) + 'git-pro-app';
+   }
 
 getLikeFromLocaleStorage(id) {
   const keys = Object.keys(window.localStorage);
-  this.getID = keys.filter(key => key === id.toString());
+
+  this.getID = keys.filter(key => key === this.uniqueKey(id));
+
   this.countLike = window.localStorage.getItem(this.getID);
   if (!!this.countLike === true) {
     this.isPressed = true;
@@ -98,7 +95,7 @@ getLikeFromLocaleStorage(id) {
   }
 }
 likedRepos(id) {
-  window.localStorage.setItem(id.toString(), (++this.countLike).toString());
+  window.localStorage.setItem(this.uniqueKey(id) , (++this.countLike).toString());
 
   this.isPressed = true;
   this.count = true;

@@ -14,14 +14,20 @@ export class RepositoryComponent implements OnInit {
   count = false;
   countLike;
   getID;
+  keyLocaleStorage;
   constructor() {}
 
   ngOnInit() {
     this.getLikeFromLocaleStorage(this.repos.id);
   }
+  uniqueKey(id) {
+   return  this.keyLocaleStorage = id.toString() + '-' + id.toString().slice(-3) + 'git-pro-app';
+  }
   getLikeFromLocaleStorage(id) {
     const keys = Object.keys(window.localStorage);
-    this.getID = keys.filter(key => key === id.toString());
+    // this.keyLocaleStorage = id.toString() + '-' + id.toString().slice(-3) + 'git-pro-app';
+
+    this.getID = keys.filter(key => key === this.uniqueKey(id));
     this.countLike = window.localStorage.getItem(this.getID);
     if (!!this.countLike === true) {
       this.isPressed = true;
@@ -29,7 +35,9 @@ export class RepositoryComponent implements OnInit {
     }
   }
   likedRepos(id) {
-    window.localStorage.setItem(id.toString(), (++this.countLike).toString());
+    this.keyLocaleStorage = id.toString() + '-' + id.toString().slice(-3) + 'git-pro-app';
+
+    window.localStorage.setItem(  this.uniqueKey(id), (++this.countLike).toString());
 
     this.isPressed = true;
     this.count = true;
